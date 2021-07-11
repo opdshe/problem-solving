@@ -20,6 +20,7 @@ public class N진수게임 {
 			answer.append(stringBuilder.charAt(idx));
 		}
 		return answer.toString();
+
 	}
 
 	private static String getNNumber(int n, int target) {
