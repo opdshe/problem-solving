@@ -25,7 +25,6 @@ public class 순위검색 {
 		int[] answerArray = answer.stream()
 				.mapToInt(Integer::valueOf)
 				.toArray();
-		System.out.println(Arrays.toString(answerArray));
 		return answerArray;
 	}
 
