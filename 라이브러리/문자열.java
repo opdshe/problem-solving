@@ -29,4 +29,9 @@ public class 문자열 {
 		return target.matches("^[abcd]*$");
 	}
 
+	//특정 문자 제외한 문자 검열 (abcd를 제외한 모든 문자 제거)
+	private static String getNewString(String origin){
+		return origin.replaceAll("[^abcd]", "");
+	}
+
 }
