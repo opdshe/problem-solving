@@ -37,4 +37,30 @@ public class 가운데를말해요 {
 		});
 		bw.flush();
 	}
+
+	/** 밑에는 이분탐색 O(logN) **/
+	/*
+	public static void main(String[] args) throws IOException {
+		int countOfNumbers = Integer.parseInt(bf.readLine());
+		List<Integer> numbers = new ArrayList<>();
+		List<Integer> answer = new ArrayList<>();
+		for (int idx = 0; idx < countOfNumbers; idx++) {
+			int number = Integer.parseInt(bf.readLine());
+			int position = Collections.binarySearch(numbers, number);
+			if (position < 0) {
+				position = (-position) - 1;
+			}
+			numbers.add(position, number);
+			answer.add(numbers.get((numbers.size() - 1) / 2));
+		}
+		answer.forEach(a-> {
+			try {
+				bw.write(String.valueOf(a));
+				bw.newLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		bw.flush();
+	}*/
 }
