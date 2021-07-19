@@ -29,8 +29,8 @@ public class 스타트택시 {
 			int[] temp = Arrays.stream(bf.readLine().split(" "))
 					.mapToInt(Integer::valueOf)
 					.toArray();
-			for(int column =1; column <= size; column++){
-				board[row][column] = temp[column-1];
+			for (int column = 1; column <= size; column++) {
+				board[row][column] = temp[column - 1];
 			}
 		}
 		info = bf.readLine().split(" ");
@@ -88,7 +88,10 @@ public class 스타트택시 {
 	}
 
 	private static void initDistance() {
-		people.forEach(Person::setDistance);
+		int[][] distanceMap = getDistanceMap(taxi.row, taxi.column);
+		for (Person person : people) {
+			person.distance = distanceMap[person.row][person.column];
+		}
 	}
 
 	private static boolean isValidPosition(int nextRow, int nextColumn) {
@@ -140,13 +143,14 @@ public class 스타트택시 {
 			this.destRow = destRow;
 			this.destColumn = destColumn;
 		}
-
-		public void setDistance() {
-			distance = getMinDistance(row, column, taxi.row, taxi.column);
-		}
 	}
 
 	private static int getMinDistance(int sr, int sc, int dr, int dc) {
+		int[][] distanceMap = getDistanceMap(sr, sc);
+		return distanceMap[dr][dc];
+	}
+
+	private static int[][] getDistanceMap(int sr, int sc) {
 		Queue<int[]> queue = new ArrayDeque<>();
 		int[][] distances = new int[size + 1][size + 1];
 		for (int row = 1; row <= size; row++) {
@@ -156,9 +160,6 @@ public class 스타트택시 {
 		queue.add(new int[]{sr, sc});
 		while (!queue.isEmpty()) {
 			int[] current = queue.poll();
-			if (current[0] == dr && current[1] == dc) {
-				break;
-			}
 			for (int[] direction : directions) {
 				int nextRow = current[0] + direction[0];
 				int nextColumn = current[1] + direction[1];
@@ -169,6 +170,6 @@ public class 스타트택시 {
 				}
 			}
 		}
-		return distances[dr][dc];
+		return distances;
 	}
 }
