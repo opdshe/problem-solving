@@ -1,10 +1,11 @@
-package 완전탐색.DFS;
+package 그래프.서로소집합;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class 텀프로젝트 {
 	private static final Scanner scanner = new Scanner(System.in);
-	private static int count = 0;
 
 	public static void main(String[] args) {
 		int testcase = scanner.nextInt();
@@ -14,33 +15,28 @@ public class 텀프로젝트 {
 			for (int idx = 1; idx <= studentCount; idx++) {
 				students[idx] = scanner.nextInt();
 			}
-			int answer = getSingle(students, studentCount);
-			System.out.println(answer);
+			int single = getSingle(students, studentCount);
+			System.out.println(single);
 		}
 	}
 
 	private static int getSingle(int[] students, int studentCount) {
-		boolean[] visited = new boolean[studentCount + 1];
 		boolean[] matched = new boolean[studentCount + 1];
-		count = 0;
+		int count = 0;
 		for (int idx = 1; idx <= studentCount; idx++) {
-			dfs(students, visited, matched, idx);
+			if (!matched[idx]) {
+				dfs(students, matched, idx, new ArrayList<>());
+			}
 		}
-		return studentCount - count;
+		for (int idx = 1; idx <= studentCount; idx++) {
+			if (!matched[idx]) {
+				count++;
+			}
+		}
+		return count;
 	}
 
-	private static void dfs(int[] students, boolean[] visited, boolean[] matched, int current) {
-		if (visited[current]) {
-			matched[current] = true;
-			count++;
-		} else {
-			visited[current] = true;
-		}
-		int want = students[current];
-		if (!matched[want]) {
-			dfs(students, visited, matched, want);
-		}
-		visited[current] = false;
-		matched[current] = true;
+	private static void dfs(int[] students, boolean[] matched, int current, List<Integer> group) {
+
 	}
 }
