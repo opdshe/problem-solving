@@ -60,15 +60,15 @@ public class 구간합구하기 {
 		update(mid + 1, end, node * 2 + 1, target, offset);
 	}
 
-	private static long sum(long start, long end, int node, int from, int to) {
+	private static long sum(long start, long end, int node, int left, int right) {
 		// 범위 밖
-		if (from > end || to < start) {
+		if (left > end || right < start) {
 			return 0;
 		}
-		if (from <= start && to >= end) {
+		if (left <= start && right >= end) {
 			return tree[node];
 		}
 		long mid = (start + end) / 2;
-		return sum(start, mid, node * 2, from, to) + sum(mid + 1, end, node * 2 + 1, from, to);
+		return sum(start, mid, node * 2, left, right) + sum(mid + 1, end, node * 2 + 1, left, right);
 	}
 }
