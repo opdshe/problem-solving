@@ -1,9 +1,20 @@
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class 테스트 {
 	public static void main(String[] args) {
-		GenericList<Integer> stringGenericList = new GenericList<Integer>();
+		Stack<Integer> head = new Stack<>();
+		Stack<Integer> tail = new Stack<>();
+		int[] numbers = new int[]{2, 5, 3, 4, 6, 4, 6};
+
+		for (int number : numbers) {
+			head.push(number);
+		}
+		while (!head.isEmpty()) {
+			tail.push(head.pop());
+		}
+		while (!tail.isEmpty()) {
+			System.out.println(tail.pop());
+		}
 	}
 
 	private static <T> String genericMethod(T t) {
