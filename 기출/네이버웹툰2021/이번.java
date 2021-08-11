@@ -16,6 +16,7 @@ public class 이번 {
 		String[] answer = candidates.stream()
 				.map(candidate -> candidate.sub)
 				.toArray(String[]::new);
+		System.out.println(Arrays.toString(answer));
 		return answer;
 	}
 

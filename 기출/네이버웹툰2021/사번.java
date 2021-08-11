@@ -3,12 +3,12 @@ package 기출.네이버웹툰2021;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//"abcxyqueryxyabc"
 public class 사번 {
 	private static List<SubString> candidates = new ArrayList<>();
 
 	public static void main(String[] args) {
-		solution("abcxyqueryxyabc");
+		solution("abcdabc");
 	}
 
 	public static String[] solution(String s) {
