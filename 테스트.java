@@ -1,27 +1,39 @@
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Predicate;
 
 public class 테스트 {
-	public static void main(String[] args) {
-		Stack<Integer> head = new Stack<>();
-		Stack<Integer> tail = new Stack<>();
-		int[] numbers = new int[]{2, 5, 3, 4, 6, 4, 6};
 
-		for (int number : numbers) {
-			head.push(number);
-		}
-		while (!head.isEmpty()) {
-			tail.push(head.pop());
-		}
-		while (!tail.isEmpty()) {
-			System.out.println(tail.pop());
-		}
+	public static void main(String[] args) {
+		GenericList<Child> childList= new GenericList<>();
+		GenericList<Parent> parentList= new GenericList<>();
+		parentList.add(new Child());
+	}
+
+	@FunctionalInterface
+	private static interface Functional {
+		int add(int a, int b);
+	}
+
+	private static class Apple {
+		private String color;
+		private int weight;
+	}
+
+	private static class Parent{
+
+	}
+
+	private static class Child extends Parent{
+
 	}
 
 	private static <T> String genericMethod(T t) {
 		return t.getClass().toString();
 	}
 
-	private static class GenericList<T extends Number> {
+	private static class GenericList<T extends Parent> {
 		private List<T> list = new ArrayList<>();
 
 		public List<T> getList() {
