@@ -14,7 +14,6 @@ public class 부분합 {
 				.mapToInt(Integer::parseInt)
 				.toArray();
 		System.out.println(solution(array, Integer.parseInt(info[1])));
-
 	}
 
 	private static int solution(int[] array, int target) {
