@@ -1,14 +1,10 @@
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Predicate;
 
 public class 테스트 {
+	private static Object lock = new Object();
 
 	public static void main(String[] args) {
-		GenericList<Child> childList= new GenericList<>();
-		GenericList<Parent> parentList= new GenericList<>();
-		parentList.add(new Child());
+
 	}
 
 	@FunctionalInterface
@@ -21,11 +17,11 @@ public class 테스트 {
 		private int weight;
 	}
 
-	private static class Parent{
+	private static class Parent {
 
 	}
 
-	private static class Child extends Parent{
+	private static class Child extends Parent {
 
 	}
 
