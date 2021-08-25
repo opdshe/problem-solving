@@ -8,15 +8,15 @@ public class 피보나치수 {
 
 	public static void main(String[] args) {
 		int target = scanner.nextInt();
-		int[] dp = new int[target + 1];
+		long[] dp = new long[target + 1];
 		Arrays.fill(dp, -1);
 		dp[0] = 0;
 		dp[1] = 1;
-		int answer = fibonacci(dp, target);
+		long answer = fibonacci(dp, target);
 		System.out.println(answer);
 	}
 
-	private static int fibonacci(int[] dp, int target) {
+	private static long fibonacci(long[] dp, int target) {
 		if (dp[target] != -1) {
 			return dp[target];
 		}
