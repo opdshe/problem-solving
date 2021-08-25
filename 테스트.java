@@ -1,35 +1,41 @@
 import java.util.*;
 
 public class 테스트 {
-	private static final Object lock = new Object();
+	public static void main(String[] args) {
+		List<Integer> a = new ArrayList<>(Arrays.asList(1,2,3));
+		List<Integer> b = new ArrayList<>(Arrays.asList(1,2,3));
+		System.out.println(a.equals(b));
+		System.out.println(a.hashCode());
+		System.out.println(b.hashCode());
 
-	public static void main(String[] args) throws CloneNotSupportedException {
-		double pi = 3.14152;
-		System.out.println(Math.round(pi * 100) / 100.0);
-		System.out.println(Math.ceil(pi * 100) / 100.0);
-		System.out.println(Math.floor(pi *100) / 100.0);
+	/*	Apple a = new Apple("red", 1);
+		Apple b = new Apple("red", 1);
+		System.out.println(a.equals(b));
+		System.out.println(a.hashCode());
+		System.out.println(b.hashCode());*/
+
 	}
 
-	private static class Test {
-		private int value;
-	}
+	private static class Apple{
+		private String color;
+		private int weight;
 
-	private static class Edge {
-	}
-
-	private static <T> String genericMethod(T t) {
-		return t.getClass().toString();
-	}
-
-	private static class GenericList<T> {
-		private List<T> list = new ArrayList<>();
-
-		public List<T> getList() {
-			return list;
+		public Apple(String color, int weight) {
+			this.color = color;
+			this.weight = weight;
 		}
 
-		public void add(T t) {
-			list.add(t);
+		@Override
+		public boolean equals(Object o) {
+			if (this == o) return true;
+			if (o == null || getClass() != o.getClass()) return false;
+			Apple apple = (Apple) o;
+			return weight == apple.weight && Objects.equals(color, apple.color);
+		}
+
+		@Override
+		public int hashCode() {
+			return Objects.hash(color, weight);
 		}
 	}
 }
