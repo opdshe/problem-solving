@@ -2,18 +2,19 @@ import java.util.*;
 
 public class 테스트 {
 	public static void main(String[] args) {
-		List<Integer> a = new ArrayList<>(Arrays.asList(1,2,3));
-		List<Integer> b = new ArrayList<>(Arrays.asList(1,2,3));
+		Apple a = new Apple("red", 5);
+		Apple b = new Apple("red", 5);
+
+		System.out.println("------before edit -------");
 		System.out.println(a.equals(b));
 		System.out.println(a.hashCode());
 		System.out.println(b.hashCode());
 
-	/*	Apple a = new Apple("red", 1);
-		Apple b = new Apple("red", 1);
+		b.weight = 10;
+		System.out.println("------after edit -------");
 		System.out.println(a.equals(b));
 		System.out.println(a.hashCode());
-		System.out.println(b.hashCode());*/
-
+		System.out.println(b.hashCode());
 	}
 
 	private static class Apple{
