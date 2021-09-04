@@ -38,8 +38,7 @@ public class QuickSort {
 			}
 			swap(array, start, end);
 		}
-		array[left] = array[start];
-		array[start] = pivot;
+		swap(array,left,start);
 		return start;
 	}
 
